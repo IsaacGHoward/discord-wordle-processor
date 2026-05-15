@@ -369,12 +369,35 @@ class WordleScrapingClient(discord.Client):
             self.wordle_stats_by_author[author]['result6Average'] = round(100 * (self.wordle_stats_by_author[author]['result6Count'] / self.wordle_stats_by_author[author]['n']), 2)
             self.wordle_stats_by_author[author]['resultXAverage'] = round(100 * (self.wordle_stats_by_author[author]['resultXCount'] / self.wordle_stats_by_author[author]['n']), 2)
 
-            self.wordle_stats_by_author[author]['guess1Average'] = round(self.wordle_stats_by_author[author]['guess1ValueSum'] / self.wordle_stats_by_author[author]['guess1Count'], 2)
-            self.wordle_stats_by_author[author]['guess2Average'] = round(self.wordle_stats_by_author[author]['guess2ValueSum'] / self.wordle_stats_by_author[author]['guess2Count'], 2)
-            self.wordle_stats_by_author[author]['guess3Average'] = round(self.wordle_stats_by_author[author]['guess3ValueSum'] / self.wordle_stats_by_author[author]['guess3Count'], 2)
-            self.wordle_stats_by_author[author]['guess4Average'] = round(self.wordle_stats_by_author[author]['guess4ValueSum'] / self.wordle_stats_by_author[author]['guess4Count'], 2)
-            self.wordle_stats_by_author[author]['guess5Average'] = round(self.wordle_stats_by_author[author]['guess5ValueSum'] / self.wordle_stats_by_author[author]['guess5Count'], 2)
-            self.wordle_stats_by_author[author]['guess6Average'] = round(self.wordle_stats_by_author[author]['guess6ValueSum'] / self.wordle_stats_by_author[author]['guess6Count'], 2)
+            if self.wordle_stats_by_author[author]['guess1Count'] > 0:
+                self.wordle_stats_by_author[author]['guess1Average'] = round(self.wordle_stats_by_author[author]['guess1ValueSum'] / self.wordle_stats_by_author[author]['guess1Count'], 2)
+            else:
+                self.wordle_stats_by_author[author]['guess1Average'] = 0
+
+            if self.wordle_stats_by_author[author]['guess2Count'] > 0:
+                self.wordle_stats_by_author[author]['guess2Average'] = round(self.wordle_stats_by_author[author]['guess2ValueSum'] / self.wordle_stats_by_author[author]['guess2Count'], 2)
+            else:
+                self.wordle_stats_by_author[author]['guess2Average'] = 0
+
+            if self.wordle_stats_by_author[author]['guess3Count'] > 0:
+                self.wordle_stats_by_author[author]['guess3Average'] = round(self.wordle_stats_by_author[author]['guess3ValueSum'] / self.wordle_stats_by_author[author]['guess3Count'], 2)
+            else:
+                self.wordle_stats_by_author[author]['guess3Average'] = 0
+
+            if self.wordle_stats_by_author[author]['guess4Count'] > 0:
+                self.wordle_stats_by_author[author]['guess4Average'] = round(self.wordle_stats_by_author[author]['guess4ValueSum'] / self.wordle_stats_by_author[author]['guess4Count'], 2)
+            else:
+                self.wordle_stats_by_author[author]['guess4Average'] = 0
+
+            if self.wordle_stats_by_author[author]['guess5Count'] > 0:
+                self.wordle_stats_by_author[author]['guess5Average'] = round(self.wordle_stats_by_author[author]['guess5ValueSum'] / self.wordle_stats_by_author[author]['guess5Count'], 2)
+            else:
+                self.wordle_stats_by_author[author]['guess5Average'] = 0
+
+            if self.wordle_stats_by_author[author]['guess6Count'] > 0:
+                self.wordle_stats_by_author[author]['guess6Average'] = round(self.wordle_stats_by_author[author]['guess6ValueSum'] / self.wordle_stats_by_author[author]['guess6Count'], 2)
+            else:
+                self.wordle_stats_by_author[author]['guess6Average'] = 0
 
     # Saves calculated stats to disk
     def save_to_disk(self):
